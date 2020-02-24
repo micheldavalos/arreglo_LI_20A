@@ -53,6 +53,15 @@ public:
         return in;
     }
 
+    bool operator==(const Personaje &p) const
+    {
+        return nombre == p.nombre;
+    }
+    bool operator>(const Personaje &p) const
+    {
+        return nombre > p.nombre;
+    }
+
 private:
     string nombre;
     string tipo;

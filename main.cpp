@@ -17,6 +17,10 @@ int main()
         cout << "4) Insertar posición" << endl;
         cout << "5) Eliminar último" << endl;
         cout << "6) Eliminar inicio" << endl;
+        cout << "7) Eliminar" << endl;
+        cout << "8) Buscar" << endl;
+        cout << "9) Buscar todos" << endl;
+        cout << "10) Sort" << endl;
         cout << "0) Salir" << endl;
         getline(cin, op);
 
@@ -50,6 +54,47 @@ int main()
         }
         else if (op == "6") {
             a.eliminar_inicio();
+        }
+        else if (op == "7") {
+            size_t p;
+
+            cout << "posicion: ";
+            cin >> p; cin.ignore();
+
+            a.eliminar(p);
+        }
+        else if (op == "8") {
+            T t;
+            cin >> t;
+
+            T *ptr = a.buscar(t);
+            if (ptr == nullptr) {
+                cout << "no existe" << endl;
+            }
+            else {
+                cout << "Encontrado" << endl;
+                cout << *ptr;
+            }
+
+        }
+        else if (op == "9") {
+            T t;
+            cin >> t;
+
+            Arreglo<T*> ptrs = a.buscar_todos(t);
+            if (ptrs.size() == 0) {
+                cout << "No encontrado" << endl;
+            }
+            else {
+                cout << "Encontrados" << endl;
+                for (size_t i = 0; i < ptrs.size(); i++) {
+                    cout << *(ptrs[i]) << endl;
+                }
+            }
+
+        }
+        else if (op == "10") {
+            a.sort();
         }
         else if (op == "0") {
             break;
